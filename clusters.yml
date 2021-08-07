@@ -12,6 +12,6 @@ spec:
       class: best-effort-medium 	 #vmclass for control plane nodes
       storageClass: wcp-k8s	   	 #storageclass for control plane
     workers:
-      count: 3                  	 #number of worker nodes
+      count: 1                  	 #number of worker nodes
       class: best-effort-medium        	 #vmclass for worker nodes
       storageClass: wcp-k8s	 	 #storageclass for worker nodes
