@@ -8,10 +8,10 @@ spec:
     version: v1.18
   topology:
     controlPlane:
-      count: 1
+      count: 0
       class: best-effort-medium
       storageClass: wcp
     workers:
-      count: 1
+      count: 0
       class: best-effort-medium
       storageClass: wcp
