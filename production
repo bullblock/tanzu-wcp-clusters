@@ -1,3 +1,4 @@
+---
 apiVersion: run.tanzu.vmware.com/v1alpha1
 kind: TanzuKubernetesCluster
 metadata:
@@ -12,6 +13,24 @@ spec:
       class: best-effort-medium
       storageClass: wcp
     workers:
-      count: 3
+      count: 1
+      class: best-effort-medium
+      storageClass: wcp
+---
+apiVersion: run.tanzu.vmware.com/v1alpha1
+kind: TanzuKubernetesCluster
+metadata:
+  name: cluster-test
+  namespace: production
+spec:
+  distribution:
+    version: v1.19
+  topology:
+    controlPlane:
+      count: 1
+      class: best-effort-medium
+      storageClass: wcp
+    workers:
+      count: 1
       class: best-effort-medium
       storageClass: wcp
