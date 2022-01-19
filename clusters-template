@@ -1,38 +1,28 @@
 apiVersion: run.tanzu.vmware.com/v1alpha2
 kind: TanzuKubernetesCluster
 metadata:
-  name: example
-  namespace: staging
+  name: sock-shop
+  namespace: production
 spec:
   topology:
     controlPlane:
-      replicas: 1
+      replicas: 3
       vmClass: best-effort-medium
-      storageClass: wcp
-      tkr:  
+      storageClass: dc1-iscsi
+      tkr:
         reference:
-          name: v1.21.2---vmware.1-tkg.1.ee25d55
-#          name: v1.20.9---vmware.1-tkg.1.a4cee5b
-#	   name: v1.19.14---vmware.1-tkg.1.8753786
-#	   name: v1.18.19---vmware.1-tkg.1.17af790
+          name: v1.21.6---vmware.1-tkg.1.b3d708a
     nodePools:
-    - name: stg-pool-1a
-      replicas: 1
+    - name: sock-shop-pool
+      replicas: 3
       vmClass: best-effort-medium
-      storageClass: wcp
-      tkr:  
+      storageClass: dc1-iscsi
+      tkr:
         reference:
-          name: v1.21.2---vmware.1-tkg.1.ee25d55
-    - name: stg-pool-1b
-      replicas: 1
-      vmClass: guaranteed-medium
-      storageClass: wcp
-      tkr:  
-        reference:
-          name: v1.21.2---vmware.1-tkg.1.ee25d55
+          name: v1.21.6---vmware.1-tkg.1.b3d708a
   settings:
     storage:
-      defaultClass: wcp
+      defaultClass: dc1-iscsi
     network:
       cni:
         name: antrea
